@@ -13,7 +13,7 @@ const MultiSelectDropdown = ({ text, toggleDropdown, quantity, isOpened }) => (
     onClick={toggleDropdown}
     aria-haspopup="true"
   >
-    <MultiSelectBadge className="Multiselect-badge" text={text} quantity={quantity} />
+    <MultiSelectBadge className="MultiSelect-badge" text={text} quantity={quantity} />
   </button>
 );
 

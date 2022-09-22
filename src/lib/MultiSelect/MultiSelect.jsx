@@ -94,7 +94,6 @@ class MultiSelect extends Component {
     return (
       <div className="MultiSelect-wrapper">
         <MultiSelectDropdown
-          className="multiselect-button-dropdown"
           text={dropdownButtonText}
           quantity={checkedItemsQuantity}
           toggleDropdown={toggleDropdown}

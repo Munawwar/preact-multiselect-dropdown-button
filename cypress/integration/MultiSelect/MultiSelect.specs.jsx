@@ -1,109 +1,109 @@
 /* global cy */
 describe('MultiSelect tests', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3001');
+    cy.visit('http://localhost:3001/example/');
   });
 
   it('Open a MultiSelect Button Dropdown', () => {
-    cy.get('.multiselect-button-dropdown')
+    cy.get('.MultiSelect-dropdownButton')
       .first()
       .click();
 
     // Assertion
-    cy.get('.multiselect-button-dropdown').should('have.class', 'is-opened');
+    cy.get('.MultiSelect-dropdownButton').should('have.class', 'MultiSelect-dropdownButton--opened');
 
-    cy.get('.multiselect-section-wrapper')
-      .find('button.multiselect-button-select-all')
+    cy.get('.MultiSelect-sectionWrapper')
+      .find('button.MultiSelect-listButtonsSelectAll')
       .should('be.visible');
-    cy.get('.multiselect-section-wrapper')
-      .find('button.multiselect-reset-button')
+    cy.get('.MultiSelect-sectionWrapper')
+      .find('button.MultiSelect-listButtonsReset')
       .should('be.visible');
   });
 
   it('Close a MultiSelect Button Dropdown', () => {
-    cy.get('.multiselect-button-dropdown')
+    cy.get('.MultiSelect-dropdownButton')
       .first()
       .click();
 
-    cy.get('.multiselect-button-dropdown')
+    cy.get('.MultiSelect-dropdownButton')
       .first()
       .click();
 
     // Assertion
-    cy.get('.multiselect-button-dropdown').should('not.have.class', 'is-opened');
+    cy.get('.MultiSelect-dropdownButton').should('not.have.class', 'MultiSelect-dropdownButton--opened');
   });
 
   it('Select all options', () => {
-    cy.get('.multiselect-button-dropdown')
+    cy.get('.MultiSelect-dropdownButton')
       .first()
       .click();
 
-    cy.get('.multiselect-section-wrapper')
-      .get('.multiselect-button-select-all')
+    cy.get('.MultiSelect-sectionWrapper')
+      .get('.MultiSelect-listButtonsSelectAll')
       .click();
 
     // Assertion
-    cy.get('.multiselect-list-item-checkbox').each(checkbox => {
+    cy.get('.MultiSelect-listItemCheckbox').each(checkbox => {
       cy.wrap(checkbox).should('be.checked');
     });
   });
 
   it('Reset all options', () => {
-    cy.get('.multiselect-button-dropdown')
+    cy.get('.MultiSelect-dropdownButton')
       .first()
       .click();
 
-    cy.get('.multiselect-section-wrapper')
-      .get('.multiselect-reset-button')
+    cy.get('.MultiSelect-sectionWrapper')
+      .get('.MultiSelect-listButtonsReset')
       .click();
 
     // Assertions
-    cy.get('.multiselect-list-item-checkbox').each(checkbox => {
+    cy.get('.MultiSelect-listItemCheckbox').each(checkbox => {
       cy.wrap(checkbox).should('not.be.checked');
     });
   });
 
   it('Unselect the first element', () => {
-    cy.get('.multiselect-button-dropdown')
+    cy.get('.MultiSelect-dropdownButton')
       .first()
       .click();
 
-    cy.get('.multiselect-section-wrapper')
-      .get('.multiselect-list-item-label')
+    cy.get('.MultiSelect-sectionWrapper')
+      .get('.MultiSelect-listItemLabel')
       .first()
       .click();
 
     // Assertion
-    cy.get('.multiselect-list-item-checkbox')
+    cy.get('.MultiSelect-listItemCheckbox')
       .first()
       .should('not.be.checked');
   });
 
   it('Select the last element', () => {
-    cy.get('.multiselect-button-dropdown')
+    cy.get('.MultiSelect-dropdownButton')
       .first()
       .click();
 
-    cy.get('.multiselect-section-wrapper')
-      .get('.multiselect-list-item-label')
+    cy.get('.MultiSelect-sectionWrapper')
+      .get('.MultiSelect-listItemLabel')
       .last()
       .click();
 
     // Assertion
-    cy.get('.multiselect-list-item-checkbox')
+    cy.get('.MultiSelect-listItemCheckbox')
       .last()
       .should('be.checked');
   });
 
   it('Check if fist item of the list is focused on dropdown open', () => {
-    cy.get('.multiselect-button-dropdown')
+    cy.get('.MultiSelect-dropdownButton')
       .first()
       .click();
 
     cy.focused().should('have.attr', 'for', 'first-option-1');
 
-    cy.get('.multiselect-section-wrapper')
-      .get('.multiselect-list-item-label')
+    cy.get('.MultiSelect-sectionWrapper')
+      .get('.MultiSelect-listItemLabel')
       .last()
       .click();
 
@@ -111,12 +111,12 @@ describe('MultiSelect tests', () => {
   });
 
   it('Check if focused change on click', () => {
-    cy.get('.multiselect-button-dropdown')
+    cy.get('.MultiSelect-dropdownButton')
       .first()
       .click();
 
-    cy.get('.multiselect-section-wrapper')
-      .get('.multiselect-list-item-label')
+    cy.get('.MultiSelect-sectionWrapper')
+      .get('.MultiSelect-listItemLabel')
       .last()
       .click();
 

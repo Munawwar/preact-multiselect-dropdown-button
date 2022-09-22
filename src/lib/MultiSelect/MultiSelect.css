@@ -177,7 +177,7 @@
   visibility: hidden;
 }
 
-.MultiSelect-lisItemLabel {
+.MultiSelect-listItemLabel {
   display: flex;
   justify-content: space-between;
   padding: 0.625rem 0; /* 10px if base font-size is 16px */
@@ -186,10 +186,10 @@
   white-space: nowrap;
   cursor: pointer;
 }
-.MultiSelect-lisItemLabel:focus {
+.MultiSelect-listItemLabel:focus {
   outline: 1px solid #5e9ed6;
 }
-.MultiSelect-lisItemLabel--checked:after {
+.MultiSelect-listItemLabel--checked:after {
   content: '';
   display: block;
   width: 5px;

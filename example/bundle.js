@@ -351,7 +351,7 @@
     onClick: toggleDropdown,
     "aria-haspopup": "true",
     children: /* @__PURE__ */ o2(MultiSelectBadge_default, {
-      className: "Multiselect-badge",
+      className: "MultiSelect-badge",
       text,
       quantity
     })
@@ -393,11 +393,11 @@
         htmlFor: id,
         onKeyPress: handleInputChange,
         ref: forwardRef,
-        className: `MultiSelect-lisItemLabel${checked ? " MultiSelect-lisItemLabel--checked" : ""}`,
+        className: `MultiSelect-listItemLabel${checked ? " MultiSelect-listItemLabel--checked" : ""}`,
         children: [
           label,
           /* @__PURE__ */ o2("input", {
-            className: "Multiselect-listItemCheckbox",
+            className: "MultiSelect-listItemCheckbox",
             type: "checkbox",
             name,
             id,
@@ -473,7 +473,6 @@
       this.setCheckedItems = this.setCheckedItems.bind(this);
       this.listItems = [];
       this.state = {
-        uninitialized: false,
         isDropdownOpened: false,
         checkedItems: getInitialCheckedItems(this.props.list || [])
       };
@@ -542,7 +541,6 @@
         className: "MultiSelect-wrapper",
         children: [
           /* @__PURE__ */ o2(MultiSelectDropdown_default, {
-            className: "multiselect-button-dropdown",
             text: dropdownButtonText,
             quantity: checkedItemsQuantity,
             toggleDropdown,
