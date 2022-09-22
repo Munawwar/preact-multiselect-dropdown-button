@@ -1,0 +1,201 @@
+
+:root {
+  /* MultiSelect.jsx */
+  --MultiSelect-buttonHeight: 4.125rem; /* 66px if base font-size is 16px */
+  --MultiSelect-selectAllButtonHeight: 3.125rem; /* 50px if base font-size is 16px */
+  --MultiSelect-paddingList: 2.625rem; /* 42px if base font-size is 16px */
+  --MultiSelect-footerHeight: 3.75rem; /* 60px if base font-size is 16px */
+
+  /* MultiSelectBadge.jsx */
+  --MultiSelect-badgeColor: #fff;
+  --MultiSelect-backgroundColor: #000;
+}
+
+/* MultiSelect.jsx */
+
+.MultiSelect-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.MultiSelect-sectionWrapper {
+  position: absolute;
+  right: auto;
+  min-width: 140px;
+  padding: 1.25rem; /* 20px if base font-size is 16px */
+  border: 1px #000 solid;
+}
+.MultiSelect-sectionWrapper--rightAligned {
+  right: 0;
+}
+
+.MultiSelect-list {
+  max-height: calc(
+    100vh
+    - var(--MultiSelect-buttonHeight)
+    - var(--MultiSelect-paddingList)
+    - var(--MultiSelect-selectAllButtonHeight)
+  );
+  margin: 0;
+  overflow: auto;
+  padding-left: 0;
+  list-style: none;
+}
+
+.MultiSelect-list--hasFooter {
+  max-height: calc(
+    100vh
+    - var(--MultiSelect-buttonHeight)
+    - var(--MultiSelect-paddingList)
+    - var(--MultiSelect-selectAllButtonHeight)
+    - var(--MultiSelect-footerHeight)
+  );
+}
+
+
+/* MultiSelectBadge.jsx */
+
+.MultiSelect-badge {
+  padding: 0.1875rem 0.5rem; /* 3px 8px if base font-size is 16px */
+  margin-left: 0.3125rem;
+  font-size: 0.85rem;
+  font-weight: normal;
+  line-height: 1;
+  color: var(--MultiSelect-badgeColor);
+  vertical-align: middle;
+  background-color: var(--MultiSelect-backgroundColor);
+  border-radius: 50%;
+}
+
+
+/* MultiSelectDropdown.jsx */
+
+.MultiSelect-dropdownButton {
+  height: 100%;
+  padding: 1.25rem; /* 20px if base font-size is 16px */
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px #000 solid;
+  border-bottom: 0;
+  box-shadow: 0 1px #000;
+}
+.MultiSelect-dropdownButton:after {
+  content: '';
+  display: inline-block;
+  margin-left: 10px;
+  padding: 3px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.MultiSelect-dropdownButton--opened:after {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+/* MultiSelectFooter.jsx */
+
+.MultiSelect-footer {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 1.25rem; /* 20px if base font-size is 16px */
+  border-top: 1px #ccc solid;
+}
+
+.MultiSelect-footerApplyButton {
+  display: block;
+  height: 40px;
+  padding: 0 0.625rem;
+  font-family: inherit;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+
+/* MultiSelectListButtons.jsx */
+
+.MultiSelect-listButtonsWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.MultiSelect-listButtonsSelectAll {
+  display: block;
+  height: 40px;
+  padding: 0 0.625rem;
+  font-family: inherit;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  height: 1.3em;
+  line-height: 1em;
+  color: #5e9ed6;
+  background-color: transparent;
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+.MultiSelect-listButtonsReset {
+  display: block;
+  height: 40px;
+  padding: 0 0.625rem;
+  font-family: inherit;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  height: 1.3em;
+  line-height: 1em;
+  color: #5e9ed6;
+  background-color: transparent;
+  padding-right: 0;
+}
+
+
+/* MultiSelectListItem.jsx */
+
+.MultiSelect-listItem:hover {
+  background-color: #f0f0f0;
+}
+
+.MultiSelect-listItemCheckbox {
+  visibility: hidden;
+}
+
+.MultiSelect-lisItemLabel {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.625rem 0; /* 10px if base font-size is 16px */
+  margin: 1px;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.MultiSelect-lisItemLabel:focus {
+  outline: 1px solid #5e9ed6;
+}
+.MultiSelect-lisItemLabel--checked:after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 10px;
+  margin-right: 3px;
+  border: solid #000;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}

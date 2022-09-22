@@ -1,3 +1,4 @@
+/* global cy */
 describe('MultiSelect tests', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3001');

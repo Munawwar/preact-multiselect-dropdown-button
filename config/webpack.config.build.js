@@ -35,8 +35,9 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
-            'react': path.resolve(__dirname, './node_modules/react'),
-            'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
+            'react': path.resolve(__dirname, './node_modules/preact'),
+            'react-dom': path.resolve(__dirname, './node_modules/preact'),
+            'preact': path.resolve(__dirname, './node_modules/preact'),
             'styled-components': path.resolve(__dirname, './node_modules/styled-components')
         }
     },
@@ -49,6 +50,12 @@ module.exports = {
             commonjs2: "react",
             amd: "React",
             root: "React"
+        },
+        preact: {
+            commonjs: "preact",
+            commonjs2: "preact",
+            amd: "Preact",
+            root: "Preact"
         },
         "react-dom": {
             commonjs: "react-dom",

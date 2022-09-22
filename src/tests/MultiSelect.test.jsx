@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'preact';
 import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
-import MultiSelect from '../lib/MultiSelect/MultiSelect';
+import { act } from 'preact/test-utils';
+import MultiSelect from '../../dist/esm/MultiSelect';
+
 
 describe('<MultiSelect />', () => {
   let container;
@@ -23,30 +23,30 @@ describe('<MultiSelect />', () => {
         label: 'First option',
         name: 'first-option',
         id: 'first-option-1',
-        checked: false
+        checked: false,
       },
       {
         label: 'Second option',
         name: 'second-option',
         id: 'second-option-2',
-        checked: false
+        checked: false,
       },
       {
         label: 'Third option',
         name: 'third-option',
         id: 'third-option-3',
-        checked: false
-      }
+        checked: false,
+      },
     ],
-    onSelectionApplied: selection => {
+    onSelectionApplied: (selection) => {
       console.log('Selected : ', selection);
     },
-    onOptionChanged: optionState => {
+    onOptionChanged: (optionState) => {
       console.log('optionState : ', optionState);
     },
     dropdownButtonText: 'Selected',
     resetButtonText: 'Reset',
-    applyButtonText: 'Apply'
+    applyButtonText: 'Apply',
   };
 
   test('should match snapshot - dropdown closed', () => {
@@ -75,7 +75,7 @@ describe('<MultiSelect />', () => {
 
   test('should select the first item clicking on its input checkbox', () => {
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
     const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
@@ -95,7 +95,7 @@ describe('<MultiSelect />', () => {
 
   test('should select the first item clicking on its label', () => {
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
     const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
@@ -115,7 +115,7 @@ describe('<MultiSelect />', () => {
 
   test('should unselect the first item', () => {
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
     const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
@@ -142,7 +142,7 @@ describe('<MultiSelect />', () => {
   test('should apply selections', () => {
     const spyApply = jest.spyOn(multiSelectProps, 'onSelectionApplied');
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
     const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
@@ -163,13 +163,13 @@ describe('<MultiSelect />', () => {
     expect(spyApply).toHaveBeenCalledWith({
       'first-option-1': true,
       'second-option-2': false,
-      'third-option-3': false
+      'third-option-3': false,
     });
   });
 
   test('should badge have the right quantity', () => {
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
     const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
@@ -196,7 +196,7 @@ describe('<MultiSelect />', () => {
   test('should select all items', () => {
     const spyOptionChanged = jest.spyOn(multiSelectProps, 'onOptionChanged');
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
     const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
@@ -212,14 +212,14 @@ describe('<MultiSelect />', () => {
     expect(spyOptionChanged).toHaveBeenCalledWith({
       'first-option-1': true,
       'second-option-2': true,
-      'third-option-3': true
+      'third-option-3': true,
     });
   });
 
   test('should reset selection', () => {
     const spyOptionChanged = jest.spyOn(multiSelectProps, 'onOptionChanged');
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
     const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
@@ -235,7 +235,7 @@ describe('<MultiSelect />', () => {
     expect(spyOptionChanged).toHaveBeenCalledWith({
       'first-option-1': true,
       'second-option-2': true,
-      'third-option-3': true
+      'third-option-3': true,
     });
 
     act(() => {
@@ -245,14 +245,14 @@ describe('<MultiSelect />', () => {
     expect(spyOptionChanged).toHaveBeenCalledWith({
       'first-option-1': false,
       'second-option-2': false,
-      'third-option-3': false
+      'third-option-3': false,
     });
   });
 
   test('should trigger option changed', () => {
     const spyOptionChanged = jest.spyOn(multiSelectProps, 'onOptionChanged');
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
     const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
@@ -268,7 +268,7 @@ describe('<MultiSelect />', () => {
     expect(spyOptionChanged).toHaveBeenCalledWith({
       'first-option-1': true,
       'second-option-2': false,
-      'third-option-3': false
+      'third-option-3': false,
     });
 
     const lastOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[2];
@@ -279,7 +279,7 @@ describe('<MultiSelect />', () => {
     expect(spyOptionChanged).toHaveBeenCalledWith({
       'first-option-1': true,
       'second-option-2': false,
-      'third-option-3': true
+      'third-option-3': true,
     });
   });
 });

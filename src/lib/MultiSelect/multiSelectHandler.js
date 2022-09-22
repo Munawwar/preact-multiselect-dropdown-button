@@ -1,15 +1,10 @@
-import { useState } from 'react';
+export const getInitialCheckedItems = (list) =>
+  list.reduce((acc, listItem) => {
+    acc[listItem.id] = listItem.checked;
+    return acc;
+  }, {});
 
-const useMultiSelect = ({ list }) => {
-  const [isDropdownOpened, setIsDropdownOpened] = useState(false);
-
-  const [checkedItems, setCheckedItems] = useState(
-    list.reduce((acc, listItem) => {
-      acc[listItem.id] = listItem.checked;
-      return acc;
-    }, {})
-  );
-
+const getMultiSelectHandlers = ({ isDropdownOpened, setIsDropdownOpened, checkedItems, setCheckedItems }) => {
   const toggleDropdown = () => {
     setIsDropdownOpened(!isDropdownOpened);
   };
@@ -32,7 +27,7 @@ const useMultiSelect = ({ list }) => {
     );
   };
 
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     const tag = event.target.tagName;
     const target = tag === 'LABEL' ? event.target.children[0] : event.target;
     // If user used the keyboard to select the label, we need to programatically check the checkbox child.
@@ -48,13 +43,13 @@ const useMultiSelect = ({ list }) => {
   };
 
   return {
-    isDropdownOpened,
-    checkedItems,
+    // isDropdownOpened,
+    // checkedItems,
     toggleDropdown,
     selectAll,
     resetSelections,
-    handleInputChange
+    handleInputChange,
   };
 };
 
-export default useMultiSelect;
+export default getMultiSelectHandlers;
