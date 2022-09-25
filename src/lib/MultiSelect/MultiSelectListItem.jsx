@@ -10,7 +10,7 @@ const MultiSelectListItem = (props) => {
   const { label, name, id, handleInputChange, checked, forwardRef } = props;
 
   return (
-    <li className="MultiSelect-listItem" role="option">
+    <li className="PreactMultiSelect-listItem" role="option">
       <label
         role="checkbox"
         aria-checked={checked}
@@ -18,11 +18,11 @@ const MultiSelectListItem = (props) => {
         htmlFor={id}
         onKeyPress={handleInputChange}
         ref={forwardRef}
-        className={`MultiSelect-listItemLabel${checked ? ' MultiSelect-listItemLabel--checked' : ''}`}
+        className={`PreactMultiSelect-listItemLabel${checked ? ' PreactMultiSelect-listItemLabel--checked' : ''}`}
       >
         {label}
         <input
-          className="MultiSelect-listItemCheckbox"
+          className="PreactMultiSelect-listItemCheckbox"
           type="checkbox"
           name={name}
           id={id}

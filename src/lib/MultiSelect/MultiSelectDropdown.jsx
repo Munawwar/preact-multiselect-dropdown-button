@@ -9,11 +9,11 @@ import MultiSelectBadge from './MultiSelectBadge';
  */
 const MultiSelectDropdown = ({ text, toggleDropdown, quantity, isOpened }) => (
   <button
-    className={`MultiSelect-dropdownButton${isOpened ? ' MultiSelect-dropdownButton--opened' : ''}`}
+    className={`PreactMultiSelect-dropdownButton${isOpened ? ' PreactMultiSelect-dropdownButton--opened' : ''}`}
     onClick={toggleDropdown}
     aria-haspopup="true"
   >
-    <MultiSelectBadge className="MultiSelect-badge" text={text} quantity={quantity} />
+    <MultiSelectBadge className="PreactMultiSelect-badge" text={text} quantity={quantity} />
   </button>
 );
 

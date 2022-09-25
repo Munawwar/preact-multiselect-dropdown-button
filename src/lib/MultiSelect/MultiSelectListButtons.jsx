@@ -6,11 +6,11 @@
  * @param {string} [props.resetButtonText = 'Reset']
  */
 const MultiSelectListButtons = ({ selectAll, selectAllButtonText, resetSelections, resetButtonText }) => (
-  <div className="MultiSelect-listButtonsWrapper">
-    <button className="MultiSelect-listButtonsSelectAll" onClick={selectAll}>
+  <div className="PreactMultiSelect-listButtonsWrapper">
+    <button className="PreactMultiSelect-listButtonsSelectAll" onClick={selectAll}>
       {selectAllButtonText}
     </button>
-    <button className="MultiSelect-listButtonsReset" onClick={resetSelections}>
+    <button className="PreactMultiSelect-listButtonsReset" onClick={resetSelections}>
       {resetButtonText}
     </button>
   </div>

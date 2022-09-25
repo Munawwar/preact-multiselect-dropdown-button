@@ -56,7 +56,7 @@ describe('<MultiSelect />', () => {
 
   test('should match snapshot - dropdown opened', () => {
     const wrapper = mount(<MultiSelect {...multiSelectProps} />);
-    wrapper.find('button.MultiSelect-dropdownButton').simulate('click');
+    wrapper.find('button.PreactMultiSelect-dropdownButton').simulate('click');
 
     expect(wrapper.getDOMNode()).toMatchSnapshot();
   });
@@ -64,12 +64,12 @@ describe('<MultiSelect />', () => {
   test('should open dropdown when button is clicked', () => {
     const wrapper = mount(<MultiSelect {...multiSelectProps} />);
 
-    expect(wrapper.find('button.MultiSelect-dropdownButton')).toBeDefined();
-    expect(wrapper.find('.MultiSelect-sectionWrapper').get(0)).toBeUndefined();
+    expect(wrapper.find('button.PreactMultiSelect-dropdownButton')).toBeDefined();
+    expect(wrapper.find('.PreactMultiSelect-sectionWrapper').get(0)).toBeUndefined();
 
-    wrapper.find('button.MultiSelect-dropdownButton').simulate('click');
+    wrapper.find('button.PreactMultiSelect-dropdownButton').simulate('click');
 
-    expect(wrapper.find('.MultiSelect-sectionWrapper')).toBeDefined();
+    expect(wrapper.find('.PreactMultiSelect-sectionWrapper')).toBeDefined();
   });
 
   test('should select the first item clicking on its input checkbox', () => {
@@ -77,13 +77,13 @@ describe('<MultiSelect />', () => {
       render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.MultiSelect-dropdownButton');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const firstOptionLabel = container.querySelectorAll('label.MultiSelect-listItemLabel')[0];
-    const firstOptionCheckbox = firstOptionLabel.querySelector('input.MultiSelect-listItemCheckbox');
+    const firstOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[0];
+    const firstOptionCheckbox = firstOptionLabel.querySelector('input.PreactMultiSelect-listItemCheckbox');
 
     act(() => {
       firstOptionCheckbox.dispatchEvent(new MouseEvent('click'));
@@ -97,13 +97,13 @@ describe('<MultiSelect />', () => {
       render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.MultiSelect-dropdownButton');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const firstOptionLabel = container.querySelectorAll('label.MultiSelect-listItemLabel')[0];
-    const firstOptionCheckbox = firstOptionLabel.querySelector('input.MultiSelect-listItemCheckbox');
+    const firstOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[0];
+    const firstOptionCheckbox = firstOptionLabel.querySelector('input.PreactMultiSelect-listItemCheckbox');
 
     act(() => {
       // firstOptionLabel.dispatchEvent(new MouseEvent('click', { bubbles: true }));
@@ -118,13 +118,13 @@ describe('<MultiSelect />', () => {
       render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.MultiSelect-dropdownButton');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const firstOptionLabel = container.querySelectorAll('label.MultiSelect-listItemLabel')[0];
-    const firstOptionCheckbox = firstOptionLabel.querySelector('input.MultiSelect-listItemCheckbox');
+    const firstOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[0];
+    const firstOptionCheckbox = firstOptionLabel.querySelector('input.PreactMultiSelect-listItemCheckbox');
 
     act(() => {
       firstOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
@@ -145,17 +145,17 @@ describe('<MultiSelect />', () => {
       render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.MultiSelect-dropdownButton');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const firstOptionLabel = container.querySelectorAll('label.MultiSelect-listItemLabel')[0];
+    const firstOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[0];
     act(() => {
       firstOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
     });
 
-    const applyButton = container.querySelector('button.MultiSelect-footerApplyButton');
+    const applyButton = container.querySelector('button.PreactMultiSelect-footerApplyButton');
     act(() => {
       applyButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
@@ -172,20 +172,20 @@ describe('<MultiSelect />', () => {
       render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.MultiSelect-dropdownButton');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const firstOptionLabel = container.querySelectorAll('label.MultiSelect-listItemLabel')[0];
+    const firstOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[0];
     act(() => {
       firstOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
     });
 
-    const badge = container.querySelector('span.MultiSelect-badge');
+    const badge = container.querySelector('span.PreactMultiSelect-badge');
     expect(badge.textContent).toBe('1');
 
-    const lastOptionLabel = container.querySelectorAll('label.MultiSelect-listItemLabel')[2];
+    const lastOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[2];
     act(() => {
       lastOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
     });
@@ -199,12 +199,12 @@ describe('<MultiSelect />', () => {
       render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.MultiSelect-dropdownButton');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const buttonSelectAll = container.querySelector('button.MultiSelect-listButtonsSelectAll');
+    const buttonSelectAll = container.querySelector('button.PreactMultiSelect-listButtonsSelectAll');
     act(() => {
       buttonSelectAll.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
@@ -222,12 +222,12 @@ describe('<MultiSelect />', () => {
       render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.MultiSelect-dropdownButton');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const buttonSelectAll = container.querySelector('button.MultiSelect-listButtonsSelectAll');
+    const buttonSelectAll = container.querySelector('button.PreactMultiSelect-listButtonsSelectAll');
     act(() => {
       buttonSelectAll.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
@@ -255,12 +255,12 @@ describe('<MultiSelect />', () => {
       render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.MultiSelect-dropdownButton');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const firstOptionLabel = container.querySelectorAll('label.MultiSelect-listItemLabel')[0];
+    const firstOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[0];
     act(() => {
       firstOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
     });
@@ -271,7 +271,7 @@ describe('<MultiSelect />', () => {
       'third-option-3': false,
     });
 
-    const lastOptionLabel = container.querySelectorAll('label.MultiSelect-listItemLabel')[2];
+    const lastOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[2];
     act(() => {
       lastOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
     });

@@ -5,7 +5,7 @@
  */
 const MultiSelectBadge = ({ text, quantity }) => (
   <>
-    {text} <span className="MultiSelect-badge">{quantity}</span>
+    {text} <span className="PreactMultiSelect-badge">{quantity}</span>
   </>
 );
 

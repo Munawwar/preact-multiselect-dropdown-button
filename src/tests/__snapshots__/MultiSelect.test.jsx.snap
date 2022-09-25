@@ -2,16 +2,16 @@
 
 exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
 <div
-  class="MultiSelect-wrapper"
+  class="PreactMultiSelect-wrapper"
 >
   <button
     aria-haspopup="true"
-    class="MultiSelect-dropdownButton"
+    class="PreactMultiSelect-dropdownButton"
   >
     Selected
      
     <span
-      class="MultiSelect-badge"
+      class="PreactMultiSelect-badge"
     >
       0
     </span>
@@ -21,54 +21,54 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
 
 exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
 <div
-  class="MultiSelect-wrapper"
+  class="PreactMultiSelect-wrapper"
 >
   <button
     aria-haspopup="true"
-    class="MultiSelect-dropdownButton MultiSelect-dropdownButton--opened"
+    class="PreactMultiSelect-dropdownButton PreactMultiSelect-dropdownButton--opened"
   >
     Selected
      
     <span
-      class="MultiSelect-badge"
+      class="PreactMultiSelect-badge"
     >
       0
     </span>
   </button>
   <div
-    class="MultiSelect-sectionWrapper"
+    class="PreactMultiSelect-sectionWrapper"
   >
     <div
-      class="MultiSelect-listButtonsWrapper"
+      class="PreactMultiSelect-listButtonsWrapper"
     >
       <button
-        class="MultiSelect-listButtonsSelectAll"
+        class="PreactMultiSelect-listButtonsSelectAll"
       >
         Select All
       </button>
       <button
-        class="MultiSelect-listButtonsReset"
+        class="PreactMultiSelect-listButtonsReset"
       >
         Reset
       </button>
     </div>
     <ul
-      class="MultiSelect-list MultiSelect-list--hasFooter"
+      class="PreactMultiSelect-list PreactMultiSelect-list--hasFooter"
     >
       <li
-        class="MultiSelect-listItem"
+        class="PreactMultiSelect-listItem"
         role="option"
       >
         <label
           aria-checked="false"
-          class="MultiSelect-listItemLabel"
+          class="PreactMultiSelect-listItemLabel"
           for="first-option-1"
           role="checkbox"
           tabindex="0"
         >
           First option
           <input
-            class="MultiSelect-listItemCheckbox"
+            class="PreactMultiSelect-listItemCheckbox"
             id="first-option-1"
             name="first-option"
             type="checkbox"
@@ -76,19 +76,19 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
         </label>
       </li>
       <li
-        class="MultiSelect-listItem"
+        class="PreactMultiSelect-listItem"
         role="option"
       >
         <label
           aria-checked="false"
-          class="MultiSelect-listItemLabel"
+          class="PreactMultiSelect-listItemLabel"
           for="second-option-2"
           role="checkbox"
           tabindex="0"
         >
           Second option
           <input
-            class="MultiSelect-listItemCheckbox"
+            class="PreactMultiSelect-listItemCheckbox"
             id="second-option-2"
             name="second-option"
             type="checkbox"
@@ -96,19 +96,19 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
         </label>
       </li>
       <li
-        class="MultiSelect-listItem"
+        class="PreactMultiSelect-listItem"
         role="option"
       >
         <label
           aria-checked="false"
-          class="MultiSelect-listItemLabel"
+          class="PreactMultiSelect-listItemLabel"
           for="third-option-3"
           role="checkbox"
           tabindex="0"
         >
           Third option
           <input
-            class="MultiSelect-listItemCheckbox"
+            class="PreactMultiSelect-listItemCheckbox"
             id="third-option-3"
             name="third-option"
             type="checkbox"
@@ -117,10 +117,10 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
       </li>
     </ul>
     <div
-      class="MultiSelect-footer"
+      class="PreactMultiSelect-footer"
     >
       <button
-        class="MultiSelect-footerApplyButton"
+        class="PreactMultiSelect-footerApplyButton"
       >
         Apply
       </button>

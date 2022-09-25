@@ -1,40 +1,40 @@
 
 :root {
   /* MultiSelect.jsx */
-  --MultiSelect-buttonHeight: 4.125rem; /* 66px if base font-size is 16px */
-  --MultiSelect-selectAllButtonHeight: 3.125rem; /* 50px if base font-size is 16px */
-  --MultiSelect-paddingList: 2.625rem; /* 42px if base font-size is 16px */
-  --MultiSelect-footerHeight: 3.75rem; /* 60px if base font-size is 16px */
+  --PreactMultiSelect-buttonHeight: 4.125rem; /* 66px if base font-size is 16px */
+  --PreactMultiSelect-selectAllButtonHeight: 3.125rem; /* 50px if base font-size is 16px */
+  --PreactMultiSelect-paddingList: 2.625rem; /* 42px if base font-size is 16px */
+  --PreactMultiSelect-footerHeight: 3.75rem; /* 60px if base font-size is 16px */
 
   /* MultiSelectBadge.jsx */
-  --MultiSelect-badgeColor: #fff;
-  --MultiSelect-backgroundColor: #000;
+  --PreactMultiSelect-badgeColor: #fff;
+  --PreactMultiSelect-backgroundColor: #000;
 }
 
 /* MultiSelect.jsx */
 
-.MultiSelect-wrapper {
+.PreactMultiSelect-wrapper {
   position: relative;
   display: inline-block;
 }
 
-.MultiSelect-sectionWrapper {
+.PreactMultiSelect-sectionWrapper {
   position: absolute;
   right: auto;
   min-width: 140px;
   padding: 1.25rem; /* 20px if base font-size is 16px */
   border: 1px #000 solid;
 }
-.MultiSelect-sectionWrapper--rightAligned {
+.PreactMultiSelect-sectionWrapper--rightAligned {
   right: 0;
 }
 
-.MultiSelect-list {
+.PreactMultiSelect-list {
   max-height: calc(
     100vh
-    - var(--MultiSelect-buttonHeight)
-    - var(--MultiSelect-paddingList)
-    - var(--MultiSelect-selectAllButtonHeight)
+    - var(--PreactMultiSelect-buttonHeight)
+    - var(--PreactMultiSelect-paddingList)
+    - var(--PreactMultiSelect-selectAllButtonHeight)
   );
   margin: 0;
   overflow: auto;
@@ -42,35 +42,35 @@
   list-style: none;
 }
 
-.MultiSelect-list--hasFooter {
+.PreactMultiSelect-list--hasFooter {
   max-height: calc(
     100vh
-    - var(--MultiSelect-buttonHeight)
-    - var(--MultiSelect-paddingList)
-    - var(--MultiSelect-selectAllButtonHeight)
-    - var(--MultiSelect-footerHeight)
+    - var(--PreactMultiSelect-buttonHeight)
+    - var(--PreactMultiSelect-paddingList)
+    - var(--PreactMultiSelect-selectAllButtonHeight)
+    - var(--PreactMultiSelect-footerHeight)
   );
 }
 
 
 /* MultiSelectBadge.jsx */
 
-.MultiSelect-badge {
+.PreactMultiSelect-badge {
   padding: 0.1875rem 0.5rem; /* 3px 8px if base font-size is 16px */
   margin-left: 0.3125rem;
   font-size: 0.85rem;
   font-weight: normal;
   line-height: 1;
-  color: var(--MultiSelect-badgeColor);
+  color: var(--PreactMultiSelect-badgeColor);
   vertical-align: middle;
-  background-color: var(--MultiSelect-backgroundColor);
+  background-color: var(--PreactMultiSelect-backgroundColor);
   border-radius: 50%;
 }
 
 
 /* MultiSelectDropdown.jsx */
 
-.MultiSelect-dropdownButton {
+.PreactMultiSelect-dropdownButton {
   height: 100%;
   padding: 1.25rem; /* 20px if base font-size is 16px */
   font-family: inherit;
@@ -81,7 +81,7 @@
   border-bottom: 0;
   box-shadow: 0 1px #000;
 }
-.MultiSelect-dropdownButton:after {
+.PreactMultiSelect-dropdownButton:after {
   content: '';
   display: inline-block;
   margin-left: 10px;
@@ -91,21 +91,21 @@
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
-.MultiSelect-dropdownButton--opened:after {
+.PreactMultiSelect-dropdownButton--opened:after {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }
 
 /* MultiSelectFooter.jsx */
 
-.MultiSelect-footer {
+.PreactMultiSelect-footer {
   display: flex;
   flex-direction: row-reverse;
   padding-top: 1.25rem; /* 20px if base font-size is 16px */
   border-top: 1px #ccc solid;
 }
 
-.MultiSelect-footerApplyButton {
+.PreactMultiSelect-footerApplyButton {
   display: block;
   height: 40px;
   padding: 0 0.625rem;
@@ -122,12 +122,12 @@
 
 /* MultiSelectListButtons.jsx */
 
-.MultiSelect-listButtonsWrapper {
+.PreactMultiSelect-listButtonsWrapper {
   display: flex;
   justify-content: space-between;
 }
 
-.MultiSelect-listButtonsSelectAll {
+.PreactMultiSelect-listButtonsSelectAll {
   display: block;
   height: 40px;
   padding: 0 0.625rem;
@@ -147,7 +147,7 @@
   padding-left: 0;
 }
 
-.MultiSelect-listButtonsReset {
+.PreactMultiSelect-listButtonsReset {
   display: block;
   height: 40px;
   padding: 0 0.625rem;
@@ -169,15 +169,15 @@
 
 /* MultiSelectListItem.jsx */
 
-.MultiSelect-listItem:hover {
+.PreactMultiSelect-listItem:hover {
   background-color: #f0f0f0;
 }
 
-.MultiSelect-listItemCheckbox {
+.PreactMultiSelect-listItemCheckbox {
   visibility: hidden;
 }
 
-.MultiSelect-listItemLabel {
+.PreactMultiSelect-listItemLabel {
   display: flex;
   justify-content: space-between;
   padding: 0.625rem 0; /* 10px if base font-size is 16px */
@@ -186,10 +186,10 @@
   white-space: nowrap;
   cursor: pointer;
 }
-.MultiSelect-listItemLabel:focus {
+.PreactMultiSelect-listItemLabel:focus {
   outline: 1px solid #5e9ed6;
 }
-.MultiSelect-listItemLabel--checked:after {
+.PreactMultiSelect-listItemLabel--checked:after {
   content: '';
   display: block;
   width: 5px;

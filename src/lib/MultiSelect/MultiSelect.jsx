@@ -92,7 +92,7 @@ class MultiSelect extends Component {
     };
 
     return (
-      <div className="MultiSelect-wrapper">
+      <div className="PreactMultiSelect-wrapper">
         <MultiSelectDropdown
           text={dropdownButtonText}
           quantity={checkedItemsQuantity}
@@ -101,7 +101,7 @@ class MultiSelect extends Component {
         />
         {isDropdownOpened && (
           <div
-            className={`MultiSelect-sectionWrapper${isRightAligned ? ' MultiSelect-sectionWrapper--rightAligned' : ''}`}
+            className={`PreactMultiSelect-sectionWrapper${isRightAligned ? ' PreactMultiSelect-sectionWrapper--rightAligned' : ''}`}
           >
             <MultiSelectListButtons
               selectAll={selectAll}
@@ -112,7 +112,7 @@ class MultiSelect extends Component {
             <ListboxKeyNav
               role="listbox"
               tag="ul"
-              className={`MultiSelect-list${onSelectionApplied ? ' MultiSelect-list--hasFooter' : ''}`}
+              className={`PreactMultiSelect-list${onSelectionApplied ? ' PreactMultiSelect-list--hasFooter' : ''}`}
               keyEvents={{ ...keyEvents }}
             >
               {list.map((listItem, index) => {
