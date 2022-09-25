@@ -37,10 +37,10 @@ describe('<MultiSelect />', () => {
         checked: false,
       },
     ],
-    onSelectionApplied: (selection) => {
+    onSelectionApplied: (/* selection */) => {
       // console.log('Selected : ', selection);
     },
-    onOptionChanged: (optionState) => {
+    onOptionChanged: (/* optionState */) => {
       // console.log('optionState : ', optionState);
     },
     dropdownButtonText: 'Selected',

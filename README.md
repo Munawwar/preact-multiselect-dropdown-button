@@ -4,8 +4,8 @@ A Dropdown Button which toggle a multi-select list. React component accessible (
 
 - Easy use with keyboard navigation (Tab, selection with Space, Arrows Up, Down, Home and End for the list) following A11y guide of https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role
 - Callback function provided, to give selected items applied
-- Can be used multilanguage, as it receives text by props
-- CSS classes provided in all tags, for you to style as you wish
+- Can be used multi-language, as it receives text by props
+- CSS classes provided in /dist/MultiSelect.css, for you to style as you wish
 
 ![alt text](https://raw.githubusercontent.com/maufarinelli/react-multiselect-dropdown-button/master/public/react-multiselect-button-dropdown-examples2.png)
 
