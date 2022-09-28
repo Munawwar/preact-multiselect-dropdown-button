@@ -42,13 +42,14 @@
     "prepare": "npm run build",
     "prepublish": "npm run build",
     "pretest": "npm run lint && npm run build",
-    "start": "npm run build-example && browser-sync start --server --port 3001 --startPath=example/ --files './bundle.js'",
     "build": "rm -fr dist && mkdir -p dist/esm && mkdir -p dist/cjs && esbuild src/lib/MultiSelect/MultiSelect.jsx --bundle --external:preact --outdir=dist/esm/ --format=esm --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic && esbuild src/lib/MultiSelect/MultiSelect.jsx --bundle --external:preact --outdir=dist/cjs/ --format=cjs --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic && cp src/lib/MultiSelect/MultiSelect.css dist/ && cp src/lib/MultiSelect/MultiSelect.d.ts dist/cjs/ && cp src/lib/MultiSelect/MultiSelect.d.ts dist/esm/",
     "test": "jest --watch",
     "cypress": "cypress open",
     "lint": "eslint --ext js,jsx src/ cypress/",
     "lint-fix": "eslint --fix --ext js,jsx src/ cypress/",
-    "build-example": "esbuild example/main.jsx --outfile=example/bundle.js --bundle --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic"
+    "example:build": "esbuild example/main.jsx --outfile=example/bundle.js --bundle --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic",
+    "example:watch": "esbuild example/main.jsx --outfile=example/bundle.js --bundle --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic --watch",
+    "start": "npm run build-example && browser-sync start --server --port 3001 --serveStatic=example/ --files './example/bundle.js'"
   },
   "eslintConfig": {
     "extends": [

@@ -22,3 +22,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Example files
+example/bundle.js
+example/bundle.min.js
+example/bundle.min.js.gz
