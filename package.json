@@ -4,16 +4,19 @@
   "main": "dist/cjs/MultiSelect.js",
   "module": "dist/esm/MultiSelect.js",
   "license": "MIT",
-  "author": "Mauricio Farinelli",
+  "author": "Munawwar",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maufarinelli/react-multiselect-dropdown-button.git"
+    "url": "git+https://github.com/Munawwar/preact-multiselect-dropdown-button.git"
   },
-  "homepage": "https://github.com/maufarinelli/react-multiselect-dropdown-button/#readme",
+  "homepage": "https://github.com/Munawwar/preact-multiselect-dropdown-button/#readme",
   "dependencies": {},
   "peerDependencies": {
-    "preact": "^10.11.0"
+    "preact": ">=8"
   },
+  "contributors": [
+    "Mauricio Farinelli"
+  ],
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/plugin-transform-react-jsx": "^7.17.3",
