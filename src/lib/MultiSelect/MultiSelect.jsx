@@ -1,5 +1,5 @@
 import { Component } from 'preact';
-import ListboxKeyNav from '../react-listbox-keyboard-navigation/ListboxKeyNav';
+import ListboxKeyNav from '../preact-listbox-keyboard-navigation/ListboxKeyNav';
 import MultiSelectDropdown from './MultiSelectDropdown';
 import MultiSelectListButtons from './MultiSelectListButtons';
 import MultiSelectListItem from './MultiSelectListItem';
@@ -101,7 +101,9 @@ class MultiSelect extends Component {
         />
         {isDropdownOpened && (
           <div
-            className={`PreactMultiSelect-sectionWrapper${isRightAligned ? ' PreactMultiSelect-sectionWrapper--rightAligned' : ''}`}
+            className={`PreactMultiSelect-sectionWrapper${
+              isRightAligned ? ' PreactMultiSelect-sectionWrapper--rightAligned' : ''
+            }`}
           >
             <MultiSelectListButtons
               selectAll={selectAll}
