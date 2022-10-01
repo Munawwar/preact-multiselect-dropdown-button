@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import MultiSelect from './lib/MultiSelect/MultiSelect';
+import { render, Component } from 'preact';
+import MultiSelect from '../src/lib/MultiSelect/MultiSelect';
 
 class App extends Component {
   render() {
@@ -116,4 +116,4 @@ class App extends Component {
   }
 }
 
-export default App;
+render(<App />, document.getElementById('container'));

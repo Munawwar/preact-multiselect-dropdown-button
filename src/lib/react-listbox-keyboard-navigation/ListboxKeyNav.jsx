@@ -1,8 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-const ListboxKeyNav = ({ tag, keyEvents, children, className, otherProps }) => {
-  const onKeyDown = e => {
+import { createElement } from 'preact';
+/**
+ * @param {object} props
+ * @param {string} props.tag
+ * @param {object} [props.keyEvents = {}]
+ * @param {() => void} [props.keyEvents.home]
+ * @param {() => void} [props.keyEvents.end]
+ * @param {() => void} [props.keyEvents.up]
+ * @param {() => void} [props.keyEvents.down]
+ */
+function ListboxKeyNav({ tag, keyEvents = {}, children, className, otherProps }) {
+  const onKeyDown = (e) => {
     switch (e.keyCode) {
       case 35:
         if (keyEvents.end) keyEvents.end(e);
@@ -21,25 +28,15 @@ const ListboxKeyNav = ({ tag, keyEvents, children, className, otherProps }) => {
     }
   };
 
-  return React.createElement(
+  return createElement(
     tag,
     {
       className,
       onKeyDown,
-      ...otherProps
+      ...otherProps,
     },
     children
   );
-};
-
-ListboxKeyNav.propTypes = {
-  tag: PropTypes.string.isRequired,
-  keyEvents: PropTypes.shape({
-    home: PropTypes.func,
-    end: PropTypes.func,
-    up: PropTypes.func,
-    down: PropTypes.func
-  })
-};
+}
 
 export default ListboxKeyNav;

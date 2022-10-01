@@ -1,15 +1,15 @@
-# React MultiSelect Dropdown Button accessible (A11y).
+# Preact MultiSelect Dropdown Button accessible (A11y).
 
-A Dropdown Button which toggle a Multiselect List. React component accessible (A11y).
+A port of [react-multiselect-dropdown-button](https://github.com/maufarinelli/react-multiselect-dropdown-button), however without CSS-in-JS (just ol' fashion CSS file).
+
+A Dropdown Button which toggle a multi-select list. Preact component accessible (A11y).
 
 - Easy use with keyboard navigation (Tab, selection with Space, Arrows Up, Down, Home and End for the list) following A11y guide of https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role
 - Callback function provided, to give selected items applied
-- Can be used multilanguage, as it receives text by props
-- CSS classes provided in all tags, for you to style as you wish
+- Can be used multi-language, as it receives text by props
+- CSS classes provided in /dist/MultiSelect.css, for you to style as you wish
 
 ![alt text](https://raw.githubusercontent.com/maufarinelli/react-multiselect-dropdown-button/master/public/react-multiselect-button-dropdown-examples2.png)
-
-Try it out in this [Live Demo](https://xzkq2.codesandbox.io/)
 
 ## A11y notes
 
@@ -19,15 +19,15 @@ Try it out in this [Live Demo](https://xzkq2.codesandbox.io/)
 
 ## How to use
 
-`npm i react-multiselect-button-dropdown`
+`npm i preact-multiselect-button-dropdown`
 
 or
 
-`yarn add react-multiselect-button-dropdown`
+`yarn add preact-multiselect-button-dropdown`
 
 and import in your app
 
-`import MultiSelect from "react-multiselect-button-dropdown";`
+`import MultiSelect from "preact-multiselect-button-dropdown";`
 
 ### props
 
@@ -72,6 +72,9 @@ and import in your app
 ## Example
 
 ```
+import MultiSelect from 'preact-multiselect-button-dropdown';
+import 'preact-multiselect-button-dropdown/dist/MultiSelect.css';
+
 const props = {
     list: [
         {

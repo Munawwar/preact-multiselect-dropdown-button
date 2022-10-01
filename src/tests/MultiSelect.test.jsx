@@ -1,7 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'preact';
 import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { act } from 'preact/test-utils';
 import MultiSelect from '../lib/MultiSelect/MultiSelect';
 
 describe('<MultiSelect />', () => {
@@ -23,30 +22,30 @@ describe('<MultiSelect />', () => {
         label: 'First option',
         name: 'first-option',
         id: 'first-option-1',
-        checked: false
+        checked: false,
       },
       {
         label: 'Second option',
         name: 'second-option',
         id: 'second-option-2',
-        checked: false
+        checked: false,
       },
       {
         label: 'Third option',
         name: 'third-option',
         id: 'third-option-3',
-        checked: false
-      }
+        checked: false,
+      },
     ],
-    onSelectionApplied: selection => {
-      console.log('Selected : ', selection);
+    onSelectionApplied: (/* selection */) => {
+      // console.log('Selected : ', selection);
     },
-    onOptionChanged: optionState => {
-      console.log('optionState : ', optionState);
+    onOptionChanged: (/* optionState */) => {
+      // console.log('optionState : ', optionState);
     },
     dropdownButtonText: 'Selected',
     resetButtonText: 'Reset',
-    applyButtonText: 'Apply'
+    applyButtonText: 'Apply',
   };
 
   test('should match snapshot - dropdown closed', () => {
@@ -57,7 +56,7 @@ describe('<MultiSelect />', () => {
 
   test('should match snapshot - dropdown opened', () => {
     const wrapper = mount(<MultiSelect {...multiSelectProps} />);
-    wrapper.find('button.multiselect-button-dropdown').simulate('click');
+    wrapper.find('button.PreactMultiSelect-dropdownButton').simulate('click');
 
     expect(wrapper.getDOMNode()).toMatchSnapshot();
   });
@@ -65,26 +64,26 @@ describe('<MultiSelect />', () => {
   test('should open dropdown when button is clicked', () => {
     const wrapper = mount(<MultiSelect {...multiSelectProps} />);
 
-    expect(wrapper.find('button.multiselect-button-dropdown')).toBeDefined();
-    expect(wrapper.find('.multiselect-section-wrapper').get(0)).toBeUndefined();
+    expect(wrapper.find('button.PreactMultiSelect-dropdownButton')).toBeDefined();
+    expect(wrapper.find('.PreactMultiSelect-sectionWrapper').get(0)).toBeUndefined();
 
-    wrapper.find('button.multiselect-button-dropdown').simulate('click');
+    wrapper.find('button.PreactMultiSelect-dropdownButton').simulate('click');
 
-    expect(wrapper.find('.multiselect-section-wrapper')).toBeDefined();
+    expect(wrapper.find('.PreactMultiSelect-sectionWrapper')).toBeDefined();
   });
 
   test('should select the first item clicking on its input checkbox', () => {
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const firstOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[0];
-    const firstOptionCheckbox = firstOptionLabel.querySelector('input.multiselect-list-item-checkbox');
+    const firstOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[0];
+    const firstOptionCheckbox = firstOptionLabel.querySelector('input.PreactMultiSelect-listItemCheckbox');
 
     act(() => {
       firstOptionCheckbox.dispatchEvent(new MouseEvent('click'));
@@ -93,21 +92,22 @@ describe('<MultiSelect />', () => {
     expect(firstOptionCheckbox.checked).toBeTruthy();
   });
 
-  test('should select the first item clicking on its label', () => {
+  test('should select the first item clicking on its label', async () => {
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const firstOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[0];
-    const firstOptionCheckbox = firstOptionLabel.querySelector('input.multiselect-list-item-checkbox');
+    const firstOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[0];
+    const firstOptionCheckbox = firstOptionLabel.querySelector('input.PreactMultiSelect-listItemCheckbox');
 
     act(() => {
-      firstOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+      // firstOptionLabel.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      firstOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
     });
 
     expect(firstOptionCheckbox.checked).toBeTruthy();
@@ -115,25 +115,25 @@ describe('<MultiSelect />', () => {
 
   test('should unselect the first item', () => {
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const firstOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[0];
-    const firstOptionCheckbox = firstOptionLabel.querySelector('input.multiselect-list-item-checkbox');
+    const firstOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[0];
+    const firstOptionCheckbox = firstOptionLabel.querySelector('input.PreactMultiSelect-listItemCheckbox');
 
     act(() => {
-      firstOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+      firstOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
     });
 
     expect(firstOptionCheckbox.checked).toBeTruthy();
 
     act(() => {
-      firstOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+      firstOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
     });
 
     expect(firstOptionCheckbox.checked).toBeFalsy();
@@ -142,20 +142,20 @@ describe('<MultiSelect />', () => {
   test('should apply selections', () => {
     const spyApply = jest.spyOn(multiSelectProps, 'onSelectionApplied');
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const firstOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[0];
+    const firstOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[0];
     act(() => {
-      firstOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+      firstOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
     });
 
-    const applyButton = container.querySelector('button.multiselect-apply-button');
+    const applyButton = container.querySelector('button.PreactMultiSelect-footerApplyButton');
     act(() => {
       applyButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
@@ -163,31 +163,31 @@ describe('<MultiSelect />', () => {
     expect(spyApply).toHaveBeenCalledWith({
       'first-option-1': true,
       'second-option-2': false,
-      'third-option-3': false
+      'third-option-3': false,
     });
   });
 
   test('should badge have the right quantity', () => {
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const firstOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[0];
+    const firstOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[0];
     act(() => {
-      firstOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+      firstOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
     });
 
-    const badge = container.querySelector('span.multiselect-badge');
+    const badge = container.querySelector('span.PreactMultiSelect-badge');
     expect(badge.textContent).toBe('1');
 
-    const lastOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[2];
+    const lastOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[2];
     act(() => {
-      lastOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+      lastOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
     });
 
     expect(badge.textContent).toBe('2');
@@ -196,15 +196,15 @@ describe('<MultiSelect />', () => {
   test('should select all items', () => {
     const spyOptionChanged = jest.spyOn(multiSelectProps, 'onOptionChanged');
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const buttonSelectAll = container.querySelector('button.multiselect-button-select-all');
+    const buttonSelectAll = container.querySelector('button.PreactMultiSelect-listButtonsSelectAll');
     act(() => {
       buttonSelectAll.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
@@ -212,22 +212,22 @@ describe('<MultiSelect />', () => {
     expect(spyOptionChanged).toHaveBeenCalledWith({
       'first-option-1': true,
       'second-option-2': true,
-      'third-option-3': true
+      'third-option-3': true,
     });
   });
 
   test('should reset selection', () => {
     const spyOptionChanged = jest.spyOn(multiSelectProps, 'onOptionChanged');
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const buttonSelectAll = container.querySelector('button.multiselect-button-select-all');
+    const buttonSelectAll = container.querySelector('button.PreactMultiSelect-listButtonsSelectAll');
     act(() => {
       buttonSelectAll.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
@@ -235,7 +235,7 @@ describe('<MultiSelect />', () => {
     expect(spyOptionChanged).toHaveBeenCalledWith({
       'first-option-1': true,
       'second-option-2': true,
-      'third-option-3': true
+      'third-option-3': true,
     });
 
     act(() => {
@@ -245,41 +245,41 @@ describe('<MultiSelect />', () => {
     expect(spyOptionChanged).toHaveBeenCalledWith({
       'first-option-1': false,
       'second-option-2': false,
-      'third-option-3': false
+      'third-option-3': false,
     });
   });
 
   test('should trigger option changed', () => {
     const spyOptionChanged = jest.spyOn(multiSelectProps, 'onOptionChanged');
     act(() => {
-      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+      render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    const buttonDropdown = container.querySelector('button.PreactMultiSelect-dropdownButton');
     act(() => {
       buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    const firstOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[0];
+    const firstOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[0];
     act(() => {
-      firstOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+      firstOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
     });
 
     expect(spyOptionChanged).toHaveBeenCalledWith({
       'first-option-1': true,
       'second-option-2': false,
-      'third-option-3': false
+      'third-option-3': false,
     });
 
-    const lastOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[2];
+    const lastOptionLabel = container.querySelectorAll('label.PreactMultiSelect-listItemLabel')[2];
     act(() => {
-      lastOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+      lastOptionLabel.dispatchEvent(new KeyboardEvent('keypress'));
     });
 
     expect(spyOptionChanged).toHaveBeenCalledWith({
       'first-option-1': true,
       'second-option-2': false,
-      'third-option-3': true
+      'third-option-3': true,
     });
   });
 });

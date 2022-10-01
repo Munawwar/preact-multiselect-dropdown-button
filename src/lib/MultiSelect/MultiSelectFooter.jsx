@@ -1,30 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { buttonCSS } from './MultiSelect.styles';
-
-const MultiSelectListFooter = styled('div')`
-  display: flex;
-  flex-direction: row-reverse;
-  padding-top: 1.25rem; /* 20px if base font-size is 16px */
-  border-top: 1px #ccc solid;
-`;
-
-const MultiSelectApplyButton = styled('button')`
-  ${buttonCSS}
-`;
-
+/**
+ * @param {object} props
+ * @param {string} [props.applyButtonText = 'Apply']
+ * @param {() => void} [props.handleApplyClick]
+ */
 const MultiSelectFooter = ({ applyButtonText = 'Apply', handleApplyClick }) => (
-  <MultiSelectListFooter>
-    <MultiSelectApplyButton className="multiselect-apply-button" onClick={handleApplyClick}>
+  <div className="PreactMultiSelect-footer">
+    <button className="PreactMultiSelect-footerApplyButton" onClick={handleApplyClick}>
       {applyButtonText}
-    </MultiSelectApplyButton>
-  </MultiSelectListFooter>
+    </button>
+  </div>
 );
-
-MultiSelectFooter.propTypes = {
-  applyButtonText: PropTypes.string,
-  handleApplyClick: PropTypes.func
-};
 
 export default MultiSelectFooter;

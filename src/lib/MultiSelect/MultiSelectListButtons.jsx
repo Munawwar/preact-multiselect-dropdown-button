@@ -1,28 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { MultiSelectAllButton, MultiSelectResetButton, MultiSelectListButtonsWrapper } from './MultiSelect.styles';
-
+/**
+ * @param {object} props
+ * @param {() => void} props.selectAll
+ * @param {() => void} props.resetSelections
+ * @param {string} [props.selectAllButtonText = 'Select All']
+ * @param {string} [props.resetButtonText = 'Reset']
+ */
 const MultiSelectListButtons = ({ selectAll, selectAllButtonText, resetSelections, resetButtonText }) => (
-  <MultiSelectListButtonsWrapper>
-    <MultiSelectAllButton className="multiselect-button-select-all" onClick={selectAll}>
+  <div className="PreactMultiSelect-listButtonsWrapper">
+    <button className="PreactMultiSelect-listButtonsSelectAll" onClick={selectAll}>
       {selectAllButtonText}
-    </MultiSelectAllButton>
-    <MultiSelectResetButton className="multiselect-reset-button" onClick={resetSelections}>
+    </button>
+    <button className="PreactMultiSelect-listButtonsReset" onClick={resetSelections}>
       {resetButtonText}
-    </MultiSelectResetButton>
-  </MultiSelectListButtonsWrapper>
+    </button>
+  </div>
 );
-
-MultiSelectListButtons.propTypes = {
-  selectAll: PropTypes.func.isRequired,
-  resetSelections: PropTypes.func.isRequired,
-  selectAllButtonText: PropTypes.string,
-  resetButtonText: PropTypes.string
-};
 
 MultiSelectListButtons.defaultProps = {
   selectAllButtonText: 'Select All',
-  resetButtonText: 'Reset'
+  resetButtonText: 'Reset',
 };
 
 export default MultiSelectListButtons;
