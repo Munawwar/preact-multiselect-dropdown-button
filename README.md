@@ -2,7 +2,7 @@
 
 A port of [react-multiselect-dropdown-button](https://github.com/maufarinelli/react-multiselect-dropdown-button), however without CSS-in-JS (just ol' fashion CSS file).
 
-A Dropdown Button which toggle a multi-select list. Preact component accessible (A11y). [View Demo](https://github.com/Munawwar/preact-multiselect-dropdown-button/example/)
+A Dropdown Button which toggle a multi-select list. Preact component accessible (A11y). [View Demo](https://munawwar.github.io/preact-multiselect-dropdown-button/example/)
 
 - Easy use with keyboard navigation (Tab, selection with Space, Arrows Up, Down, Home and End for the list) following A11y guide of https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role
 - Callback function provided, to give selected items applied
