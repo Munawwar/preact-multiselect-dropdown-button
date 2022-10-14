@@ -52,7 +52,7 @@
     "lint-fix": "eslint --fix --ext js,jsx src/ cypress/",
     "example:build": "esbuild example/main.jsx --outfile=example/bundle.js --bundle --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic",
     "example:watch": "esbuild example/main.jsx --outfile=example/bundle.js --bundle --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic --watch",
-    "start": "npm run build-example && browser-sync start --server --port 3001 --serveStatic=example/ --files './example/bundle.js'"
+    "start": "npm run example:build && browser-sync start --server --port 3001 --serveStatic=example/ --files './example/bundle.js'"
   },
   "eslintConfig": {
     "extends": [

@@ -11,7 +11,9 @@ describe('MultiSelect tests', () => {
     // Assertion
     cy.get('.PreactMultiSelect-dropdownButton').should('have.class', 'PreactMultiSelect-dropdownButton--opened');
 
-    cy.get('.PreactMultiSelect-sectionWrapper').find('button.PreactMultiSelect-listButtonsSelectAll').should('be.visible');
+    cy.get('.PreactMultiSelect-sectionWrapper')
+      .find('button.PreactMultiSelect-listButtonsSelectAll')
+      .should('be.visible');
     cy.get('.PreactMultiSelect-sectionWrapper').find('button.PreactMultiSelect-listButtonsReset').should('be.visible');
   });
 

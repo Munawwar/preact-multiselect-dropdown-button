@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/role-has-required-aria-props */
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 /**
  * @param {object} props
  * @param {string} props.label
